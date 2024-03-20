@@ -3,11 +3,34 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Users from './components/Users';
+import ErrorPage from './error-page';
+import User from './components/User';
+import { ThemeProvider } from '@mui/material';
+import { theme } from './theme';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Users />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "user/:userId",
+    element: <User />,
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+    <RouterProvider router={router} />
+    </ThemeProvider>
   </React.StrictMode>
 );
 

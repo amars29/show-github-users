@@ -14,16 +14,20 @@ function User(props) {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(false);
 
+  // const githubToken = process.env.GITHUB_ACCESS_TOKEN;
+
   useEffect(() => {
     try {
       const fetchUser = async () => {
         setLoading(true);
-        const response = await fetch(`https://api.github.com/users/${userId}`, {
-          headers: {
-            Authorization:
-              "Bearer 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",
-          },
-        });
+        const response = await fetch(
+          `https://api.github.com/users/${userId}`
+          //   ,{
+          //     headers: {
+          //       Authorization: `Bearer ${githubToken}`,
+          //     },
+          //   }
+        );
         if (!response.ok) {
           console.log(`Failed to fetch the user ${userId}`);
         } else {

@@ -21,17 +21,17 @@ const Users = () => {
   const perPage = 10;
   const [error, setError] = useState(false);
 
+  // const githubToken = process.env.GITHUB_ACCESS_TOKEN;
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const response = await fetch(
-          `https://api.github.com/users?since=${since}&per_page=${perPage}`,
-          {
-            headers: {
-              Authorization:
-                "Bearer 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",
-            },
-          }
+          `https://api.github.com/users?since=${since}&per_page=${perPage}`
+          //   ,{
+          //     headers: {
+          //       Authorization: `Bearer ${githubToken}`,
+          //     },
+          //   }
         );
         if (!response.ok) {
           console.log("Failed to fetch the users");

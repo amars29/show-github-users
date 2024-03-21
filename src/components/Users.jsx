@@ -13,15 +13,13 @@ import {
 } from "@mui/material";
 
 const Users = () => {
-  //   const classes = useStyles();
   const [users, setUsers] = useState([]);
 
   const [since, setSince] = useState(0);
-  //   const [perPage, setPerPage] = useState(10);
   const perPage = 10;
   const [error, setError] = useState(false);
 
-  // const githubToken = process.env.GITHUB_ACCESS_TOKEN;
+  // const githubToken = process.env.GITHUB_ACCESS_TOKEN
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -84,11 +82,14 @@ const Users = () => {
                     component={Link}
                     to={`/user/${user.login}`}
                     sx={{
+                      color: "textDark800",
                       "&:hover": {
                         backgroundColor: "rgba(0, 0, 0, 0.04)",
+                        color: "textDark800",
                       },
                       "&:focus": {
                         backgroundColor: "rgba(0, 0, 0, 0.04)",
+                        color: "textDark800",
                       },
                       gap: 2,
                       cursor: "pointer",
@@ -98,7 +99,7 @@ const Users = () => {
                     }}
                   >
                     <Avatar alt={user.login} src={user.avatar_url} />
-                    <ListItemText primary={user.login} color="red" />
+                    <ListItemText primary={user.login} />
                   </ListItem>
                 ))}
               </List>

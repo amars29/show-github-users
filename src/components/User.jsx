@@ -10,7 +10,6 @@ import Repositories from "./Repositories";
 
 function User(props) {
   const { userId } = useParams();
-  const [loading, setLoading] = useState(false);
   const [user, setUser] = useState(null);
   const [error, setError] = useState(false);
 
@@ -19,7 +18,6 @@ function User(props) {
   useEffect(() => {
     try {
       const fetchUser = async () => {
-        setLoading(true);
         const response = await fetch(
           `https://api.github.com/users/${userId}`
           //   ,{

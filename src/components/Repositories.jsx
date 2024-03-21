@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Typography, Card, CardContent, Grid, Box } from "@mui/material";
-import { Link } from "react-router-dom";
 
 function Repositories({ reposUrl }) {
   const [repos, setRepos] = useState([]);
@@ -24,7 +23,7 @@ function Repositories({ reposUrl }) {
       <Typography fontSize={20} fontWeight={700}>
         Repositories
       </Typography>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} mt={1}>
         {repos.map((repo) => {
           return (
             <Grid
@@ -43,9 +42,15 @@ function Repositories({ reposUrl }) {
                 rel="noreferrer"
                 style={{
                   textDecoration: "none",
+                  display: "block",
+                  height: "100%",
                 }}
               >
-                <Card>
+                <Card
+                  sx={{
+                    height: "100%",
+                  }}
+                >
                   <CardContent>
                     <Typography variant="h6" component="h2">
                       {repo.name}
